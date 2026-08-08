@@ -1,0 +1,16 @@
+.subtitle {
+  font-size: 0.9rem;
+  color: #a0a0c0;
+  margin-top: 0.25rem;
+}
+@media (max-width: 600px) {
+  .app-header {
+    padding: 1.2rem 1.2rem;
+  }
+  .app-header h1 {
+    font-size: 1.2rem;
+  }
+  .app-main {
+    padding: 1.2rem;
+  }
+}

@@ -1,0 +1,110 @@
+.results-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dashboard-top {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .dashboard-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eligibility-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.eligibility-percent {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a1a2e;
+}
+
+.eligibility-label {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.recommendation-badge {
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.module-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
+
+.module-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.module-score {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4a4de7;
+}
+
+.module-category {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-top: 0.2rem;
+}
+
+.module-label {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.4rem;
+}
+
+.reset-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid #4a4de7;
+  color: #4a4de7;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background: #4a4de7;
+  color: white;
+}
+@media (max-width: 600px) {
+  .eligibility-percent {
+    font-size: 2.2rem;
+  }
+  .eligibility-card,
+  .module-card,
+  .panel-card,
+  .chart-card {
+    padding: 1.2rem;
+  }
+}

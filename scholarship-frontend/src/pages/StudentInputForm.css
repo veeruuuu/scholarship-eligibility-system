@@ -1,0 +1,81 @@
+.student-form {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #1a1a2e;
+  border-left: 4px solid #4a4de7;
+  padding-left: 0.6rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #444;
+}
+
+.form-field input,
+.form-field select {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #d0d3e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: #4a4de7;
+}
+
+.form-field small {
+  margin-top: 0.3rem;
+  color: #888;
+  font-size: 0.75rem;
+}
+
+.submit-btn {
+  background: #4a4de7;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #3a3dc7;
+}
+
+.error-text {
+  color: #e63946;
+  font-size: 0.78rem;
+  margin-top: 0.3rem;
+}
+
+.form-field input:invalid {
+  box-shadow: none;
+}

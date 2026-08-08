@@ -1,0 +1,14 @@
+# Frontend
+scholarship-frontend/node_modules/
+scholarship-frontend/dist/
+
+# Backend
+scholarship-backend/venv/
+scholarship-backend/__pycache__/
+scholarship-backend/app/__pycache__/
+scholarship-backend/app/fuzzy_engine/__pycache__/
+scholarship-backend/*.pyc
+
+# OS/editor
+.DS_Store
+.vscode/
