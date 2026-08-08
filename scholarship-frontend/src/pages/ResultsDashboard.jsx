@@ -1,54 +1,50 @@
+import RatingLadder from '../components/RatingLadder'
 import ModuleCharts from '../components/ModuleCharts'
-
-import './ResultsDashboard.css'
 import ExplanationPanel from '../components/ExplanationPanel'
-const RECOMMENDATION_COLORS = {
-  'Not Eligible': '#e63946',
-  'Low Priority': '#f4a261',
-  'Medium Priority': '#e9c46a',
-  'High Priority': '#2a9d8f',
-  'Highly Recommended': '#1b998b',
-}
+import './ResultsDashboard.css'
 
 function ResultsDashboard({ result, onReset }) {
   if (!result) return null
 
-  const {
-    academic_strength,
-    need_score,
-    achievement_score,
-    final_eligibility,
-    recommendation,
-  } = result
-
-  const badgeColor = RECOMMENDATION_COLORS[recommendation] || '#4a4de7'
+  const { academic_strength, need_score, achievement_score, final_eligibility, recommendation } = result
 
   return (
     <div className="results-dashboard">
-      <div className="dashboard-top">
-        <div className="eligibility-card">
-          <div className="eligibility-percent">{final_eligibility}%</div>
-          <div className="eligibility-label">Final Eligibility Score</div>
-          <span className="recommendation-badge" style={{ backgroundColor: badgeColor }}>
-            {recommendation}
-          </span>
-        </div>
+      <div className="report-header">
+        <span className="eyebrow">Assessment report</span>
+        <button className="btn-ghost" onClick={onReset}>
+          ← New assessment
+        </button>
+      </div>
 
-        <div className="module-cards">
-          <ModuleCard label="Academic Strength" data={academic_strength} />
-          <ModuleCard label="Financial / Social Need" data={need_score} />
-          <ModuleCard label="Achievement" data={achievement_score} />
+      <div className="summary-strip">
+        <div className="score-block">
+          <span className="score-label">Final Eligibility Score</span>
+          <div className="score-value">
+            <span className="score-number">{final_eligibility}</span>
+            <span className="score-unit">/100</span>
+          </div>
+        </div>
+        <div className="ladder-block">
+          <RatingLadder recommendation={recommendation} />
         </div>
       </div>
 
-      <ModuleCharts academic={academic_strength} need={need_score} achievement={achievement_score} />
-      
-      <ExplanationPanel result={result} />
+      <div className="module-cards">
+        <ModuleCard label="Academic Strength" data={academic_strength} />
+        <ModuleCard label="Financial / Social Need" data={need_score} />
+        <ModuleCard label="Achievement" data={achievement_score} />
+      </div>
 
+      <section className="report-section">
+        <h3 className="report-heading">Score composition</h3>
+        <ModuleCharts academic={academic_strength} need={need_score} achievement={achievement_score} />
+      </section>
 
-      <button className="reset-btn" onClick={onReset}>
-        Evaluate Another Student
-      </button>
+      <section className="report-section">
+        <h3 className="report-heading">Explainability</h3>
+        <ExplanationPanel result={result} />
+      </section>
     </div>
   )
 }
@@ -56,9 +52,11 @@ function ResultsDashboard({ result, onReset }) {
 function ModuleCard({ label, data }) {
   return (
     <div className="module-card">
-      <div className="module-score">{data.score}</div>
-      <div className="module-category">{data.category}</div>
-      <div className="module-label">{label}</div>
+      <span className="module-label">{label}</span>
+      <div className="module-score-row">
+        <span className="module-score">{data.score}</span>
+        <span className="module-category">{data.category}</span>
+      </div>
     </div>
   )
 }

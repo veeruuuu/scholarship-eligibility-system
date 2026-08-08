@@ -1,8 +1,16 @@
 function Header() {
   return (
     <header className="app-header">
-      <h1>🎓 Scholarship Eligibility System</h1>
-      <p className="subtitle">Hierarchical Fuzzy Logic Assessment</p>
+      <div className="header-inner">
+        <div className="brand">
+          <span className="brand-mark">SE</span>
+          <div className="brand-text">
+            <span className="brand-name">Scholarship Eligibility</span>
+            <span className="brand-tagline">Fuzzy Assessment Engine</span>
+          </div>
+        </div>
+        <span className="header-note">Explainable scoring</span>
+      </div>
     </header>
   )
 }

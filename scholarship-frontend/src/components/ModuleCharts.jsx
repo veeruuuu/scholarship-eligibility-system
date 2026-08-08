@@ -14,33 +14,27 @@ function ModuleCharts({ academic, need, achievement }) {
   return (
     <div className="charts-grid">
       <div className="chart-card">
-        <h3>Module Score Comparison (Radar)</h3>
-        <ResponsiveContainer width="100%" height={280}>
+        <h4>Module comparison — radar</h4>
+        <ResponsiveContainer width="100%" height={260}>
           <RadarChart data={chartData}>
-            <PolarGrid stroke="#e0e0ec" />
-            <PolarAngleAxis dataKey="subject" tick={{ fontSize: 13, fill: '#444' }} />
-            <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fontSize: 11 }} />
-            <Radar
-              name="Score"
-              dataKey="score"
-              stroke="#4a4de7"
-              fill="#4a4de7"
-              fillOpacity={0.35}
-            />
-            <Tooltip />
+            <PolarGrid stroke="#E2E4EA" />
+            <PolarAngleAxis dataKey="subject" tick={{ fontSize: 12, fill: '#565D74', fontFamily: 'Inter' }} />
+            <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fontSize: 10, fill: '#8A90A3' }} />
+            <Radar name="Score" dataKey="score" stroke="#B9872A" fill="#B9872A" fillOpacity={0.28} />
+            <Tooltip contentStyle={{ fontFamily: 'IBM Plex Mono', fontSize: 12, borderRadius: 8, border: '1px solid #E2E4EA' }} />
           </RadarChart>
         </ResponsiveContainer>
       </div>
 
       <div className="chart-card">
-        <h3>Module Score Comparison (Bar)</h3>
-        <ResponsiveContainer width="100%" height={280}>
+        <h4>Module comparison — bar</h4>
+        <ResponsiveContainer width="100%" height={260}>
           <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e0e0ec" />
-            <XAxis dataKey="subject" tick={{ fontSize: 13, fill: '#444' }} />
-            <YAxis domain={[0, 100]} tick={{ fontSize: 11 }} />
-            <Tooltip />
-            <Bar dataKey="score" fill="#4a4de7" radius={[6, 6, 0, 0]} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#E2E4EA" vertical={false} />
+            <XAxis dataKey="subject" tick={{ fontSize: 12, fill: '#565D74', fontFamily: 'Inter' }} axisLine={{ stroke: '#E2E4EA' }} tickLine={false} />
+            <YAxis domain={[0, 100]} tick={{ fontSize: 10, fill: '#8A90A3' }} axisLine={false} tickLine={false} />
+            <Tooltip contentStyle={{ fontFamily: 'IBM Plex Mono', fontSize: 12, borderRadius: 8, border: '1px solid #E2E4EA' }} cursor={{ fill: '#F5F6F8' }} />
+            <Bar dataKey="score" fill="#12182B" radius={[5, 5, 0, 0]} maxBarSize={56} />
           </BarChart>
         </ResponsiveContainer>
       </div>

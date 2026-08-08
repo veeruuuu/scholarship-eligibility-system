@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Header from './components/Header'
+import './components/Header.css'
 import LandingPage from './pages/LandingPage'
 import StudentInputForm from './pages/StudentInputForm'
 import ResultsDashboard from './pages/ResultsDashboard'

@@ -1,0 +1,74 @@
+.app-header {
+  background: var(--ink);
+  color: #F5F6F8;
+}
+
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-mark {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: var(--gold);
+  color: var(--ink);
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.brand-tagline {
+  font-size: 0.72rem;
+  color: #AEB4C7;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.header-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #AEB4C7;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .header-note {
+    display: inline;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    padding: 1rem 1.25rem;
+  }
+}

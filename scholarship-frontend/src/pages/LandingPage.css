@@ -1,76 +1,187 @@
 .landing {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
   align-items: center;
-  justify-content: center;
   min-height: 60vh;
+  padding: 2rem 0;
 }
 
-.landing-content {
-  background: white;
-  border-radius: 20px;
-  padding: 3rem 2.5rem;
-  max-width: 620px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-  text-align: center;
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
 }
 
-.landing-content h2 {
-  font-size: 1.7rem;
-  color: #1a1a2e;
-  margin-bottom: 1rem;
+.landing-copy h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 2.6rem;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0.9rem 0 1.2rem;
 }
 
-.landing-content p {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.6;
+.landing-copy h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.landing-copy p {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  max-width: 480px;
   margin-bottom: 1.5rem;
 }
 
 .landing-points {
   list-style: none;
-  text-align: left;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.6rem;
   margin-bottom: 2rem;
 }
 
 .landing-points li {
   font-size: 0.88rem;
-  color: #333;
-  padding-left: 1.4rem;
+  color: var(--ink);
+  padding-left: 1.3rem;
   position: relative;
 }
 
 .landing-points li::before {
-  content: '✓';
-  color: #2a9d8f;
-  font-weight: bold;
+  content: '';
   position: absolute;
   left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
 }
 
-.start-btn {
-  background: #4a4de7;
-  color: white;
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
   border: none;
-  padding: 0.9rem 2.2rem;
-  border-radius: 10px;
-  font-size: 1rem;
+  padding: 0.85rem 1.7rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
   font-weight: 600;
   cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
-.start-btn:hover {
-  background: #3a3dc7;
+.btn-primary:hover {
+  background: #232B45;
+  transform: translateY(-1px);
 }
 
-@media (max-width: 600px) {
-  .landing-content {
-    padding: 2rem 1.5rem;
+/* Decorative preview card */
+.landing-preview {
+  display: flex;
+  justify-content: center;
+}
+
+.preview-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1.75rem;
+  width: 100%;
+  max-width: 320px;
+  animation: fadeInUp 0.5s ease;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+
+.preview-badge {
+  background: var(--tier-5);
+  color: #fff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.preview-score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  font-family: var(--font-mono);
+  margin-bottom: 0.9rem;
+}
+
+.preview-number {
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.preview-unit {
+  font-size: 1rem;
+  color: var(--ink-faint);
+}
+
+.preview-ladder {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 1.4rem;
+}
+
+.preview-ladder .seg {
+  height: 6px;
+  flex: 1;
+  border-radius: 3px;
+  background: var(--line);
+}
+
+.preview-ladder .seg.filled {
+  background: var(--tier-5);
+}
+
+.preview-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.preview-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.preview-row .mono {
+  font-family: var(--font-mono);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .landing {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
-  .landing-content h2 {
-    font-size: 1.4rem;
+  .landing-copy h1 {
+    font-size: 2.1rem;
   }
 }
