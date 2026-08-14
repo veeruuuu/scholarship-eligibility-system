@@ -30,3 +30,12 @@ class EvaluationResult(BaseModel):
     activated_rules: list[str]
     key_factors: list[str]
     explanation: str
+
+class OptimizationResult(BaseModel):
+    original_boundaries: dict
+    optimized_boundaries: dict
+    original_mse: float
+    optimized_mse: float
+    improvement_pct: float
+    fitness_history: list[dict]
+    sample_count: int

@@ -34,3 +34,20 @@ export async function evaluateEligibility(formData) {
 
   return response.json()
 }
+/**
+ * Triggers the GA membership-function optimizer on the backend.
+ * Separate from evaluateEligibility — does not affect the main assessment flow.
+ */
+export async function runOptimization() {
+  const response = await fetch(`${API_BASE_URL}/api/optimize`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  })
+
+  if (!response.ok) {
+    const errorBody = await response.json().catch(() => ({}))
+    throw new Error(errorBody.detail || `Request failed with status ${response.status}`)
+  }
+
+  return response.json()
+}

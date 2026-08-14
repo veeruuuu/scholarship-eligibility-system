@@ -1,4 +1,4 @@
-function Header() {
+function Header({ onNavigateOptimizer }) {
   return (
     <header className="app-header">
       <div className="header-inner">
@@ -9,7 +9,9 @@ function Header() {
             <span className="brand-tagline">Fuzzy Assessment Engine</span>
           </div>
         </div>
-        <span className="header-note">Explainable scoring</span>
+        <button className="header-link" onClick={onNavigateOptimizer}>
+          GA Optimizer
+        </button>
       </div>
     </header>
   )

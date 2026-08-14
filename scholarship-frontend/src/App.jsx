@@ -4,10 +4,11 @@ import './components/Header.css'
 import LandingPage from './pages/LandingPage'
 import StudentInputForm from './pages/StudentInputForm'
 import ResultsDashboard from './pages/ResultsDashboard'
+import OptimizerPage from './pages/OptimizerPage'
 import { evaluateEligibility } from './services/api'
 import './App.css'
 
-// view: 'landing' | 'form' | 'results'
+// view: 'landing' | 'form' | 'results' | 'optimizer'
 
 function App() {
   const [view, setView] = useState('landing')
@@ -37,24 +38,24 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header onNavigateOptimizer={() => setView('optimizer')} />
       <main className="app-main">
         {view === 'landing' && <LandingPage onStart={() => setView('form')} />}
 
         {view === 'form' && (
           <>
             <StudentInputForm onSubmit={handleFormSubmit} />
-            {loading && <p style={{ marginTop: '1rem' }}>Evaluating eligibility...</p>}
-            {error && (
-              <p style={{ marginTop: '1rem', color: '#e63946' }}>
-                Error: {error}
-              </p>
-            )}
+            {loading && <p className="status-line loading">Evaluating eligibility...</p>}
+            {error && <p className="status-line error">Error: {error}</p>}
           </>
         )}
 
         {view === 'results' && result && (
           <ResultsDashboard result={result} onReset={handleReset} />
+        )}
+
+        {view === 'optimizer' && (
+          <OptimizerPage onBack={() => setView('landing')} />
         )}
       </main>
     </div>

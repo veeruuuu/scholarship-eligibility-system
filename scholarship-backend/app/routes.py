@@ -12,3 +12,12 @@ def evaluate(student: StudentInput):
 
     result = run_evaluation(student)
     return EvaluationResult(**result)
+
+from app.fuzzy_engine.optimization.ga_optimizer import run_ga
+from app.schemas import OptimizationResult
+
+
+@router.post("/api/optimize", response_model=OptimizationResult)
+def optimize():
+    result = run_ga()
+    return OptimizationResult(**result)
